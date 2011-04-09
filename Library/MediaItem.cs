@@ -7,16 +7,16 @@ namespace Library
 {
     public enum MediaType
     {
-        Adult_book,
+        Adult_book = 1,
         Childs_book,
         Video
     };
     public interface MediaItem
     {
-        public MediaType type { get; set; }
-        public string name { get; set; }
-        public Patron checked_to { get; set; }
-        public DateTime checkout_date { get; set; }
-        public DateTime due_date { get; set; }
+        MediaType type { get; set; }
+        string name { get; set; }
+        Patron checked_to { get; set; }
+        DateTime checkout_date { get; set; }
+        DateTime due_date { get; set; }
     };
 }

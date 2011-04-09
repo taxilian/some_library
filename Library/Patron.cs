@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Library
 {
-    public enum PatronType { Adult, Child };
-    class Patron
+    public enum PatronType { Adult=1, Child };
+    public interface Patron
     {
-        public string name { get; set; }
-        public PatronType type { get; set; }
+        string name { get; set; }
+        PatronType type { get; set; }
     };
 }

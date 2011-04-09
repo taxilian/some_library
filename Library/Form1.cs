@@ -11,6 +11,8 @@ namespace Library
 {
     public partial class Form1 : Form
     {
+        Library lib = new OurLibrary();
+
         public Form1()
         {
             InitializeComponent();
@@ -28,6 +30,7 @@ namespace Library
             if (result == DialogResult.OK)
             {
                 databaseFile.Text = databaseFileDialog.FileName;
+                lib.OpenLibrary(databaseFileDialog.FileName);
             }
         }
     }

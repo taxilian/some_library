@@ -7,8 +7,9 @@ namespace Library
 {
     public interface Library
     {
+        void OpenLibrary(string filename);
         List<MediaItem> GetMediaItems(Patron p = null);
-        List<MediaItem> GetAllPatrons();
+        List<Patron> GetAllPatrons();
         List<MediaItem> GetCheckedOutMedia();
     }
 }

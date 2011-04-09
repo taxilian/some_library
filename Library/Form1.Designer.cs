@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.settingsTab = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.currentDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.claimFileDirButton = new System.Windows.Forms.Button();
+            this.databaseFile = new System.Windows.Forms.TextBox();
             this.allBooksTab = new System.Windows.Forms.TabPage();
             this.allBooksGridView = new System.Windows.Forms.DataGridView();
             this.allBooksTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,14 +78,9 @@
             this.availableBooksAuthor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.availableBooksType = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.availableBooksCheckOut = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.settingsTab = new System.Windows.Forms.TabPage();
-            this.claimFileDirButton = new System.Windows.Forms.Button();
-            this.databaseFile = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.currentDate = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.databaseFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
+            this.settingsTab.SuspendLayout();
             this.allBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allBooksGridView)).BeginInit();
             this.overdueBooksTab.SuspendLayout();
@@ -88,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedOutGridView)).BeginInit();
             this.availableBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availableBooksGridView)).BeginInit();
-            this.settingsTab.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -103,6 +103,68 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(949, 475);
             this.tabControl1.TabIndex = 0;
+            // 
+            // settingsTab
+            // 
+            this.settingsTab.Controls.Add(this.label5);
+            this.settingsTab.Controls.Add(this.currentDate);
+            this.settingsTab.Controls.Add(this.label4);
+            this.settingsTab.Controls.Add(this.claimFileDirButton);
+            this.settingsTab.Controls.Add(this.databaseFile);
+            this.settingsTab.Location = new System.Drawing.Point(4, 22);
+            this.settingsTab.Name = "settingsTab";
+            this.settingsTab.Size = new System.Drawing.Size(941, 449);
+            this.settingsTab.TabIndex = 4;
+            this.settingsTab.Text = "Settings";
+            this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(63, 86);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "Current Date";
+            // 
+            // currentDate
+            // 
+            this.currentDate.CustomFormat = "yyyy-MM-dd";
+            this.currentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.currentDate.Location = new System.Drawing.Point(136, 82);
+            this.currentDate.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
+            this.currentDate.MinDate = new System.DateTime(2003, 1, 1, 0, 0, 0, 0);
+            this.currentDate.Name = "currentDate";
+            this.currentDate.Size = new System.Drawing.Size(80, 20);
+            this.currentDate.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(24, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Library Database File";
+            // 
+            // claimFileDirButton
+            // 
+            this.claimFileDirButton.Location = new System.Drawing.Point(608, 30);
+            this.claimFileDirButton.Name = "claimFileDirButton";
+            this.claimFileDirButton.Size = new System.Drawing.Size(95, 23);
+            this.claimFileDirButton.TabIndex = 14;
+            this.claimFileDirButton.Text = "Select File";
+            this.claimFileDirButton.UseVisualStyleBackColor = true;
+            this.claimFileDirButton.Click += new System.EventHandler(this.claimFileDirButton_Click);
+            // 
+            // databaseFile
+            // 
+            this.databaseFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.databaseFile.Location = new System.Drawing.Point(136, 32);
+            this.databaseFile.Name = "databaseFile";
+            this.databaseFile.ReadOnly = true;
+            this.databaseFile.Size = new System.Drawing.Size(466, 20);
+            this.databaseFile.TabIndex = 15;
             // 
             // allBooksTab
             // 
@@ -502,67 +564,6 @@
             this.availableBooksCheckOut.Name = "availableBooksCheckOut";
             this.availableBooksCheckOut.Width = 65;
             // 
-            // settingsTab
-            // 
-            this.settingsTab.Controls.Add(this.label5);
-            this.settingsTab.Controls.Add(this.currentDate);
-            this.settingsTab.Controls.Add(this.label4);
-            this.settingsTab.Controls.Add(this.claimFileDirButton);
-            this.settingsTab.Controls.Add(this.databaseFile);
-            this.settingsTab.Location = new System.Drawing.Point(4, 22);
-            this.settingsTab.Name = "settingsTab";
-            this.settingsTab.Size = new System.Drawing.Size(941, 449);
-            this.settingsTab.TabIndex = 4;
-            this.settingsTab.Text = "Settings";
-            this.settingsTab.UseVisualStyleBackColor = true;
-            // 
-            // claimFileDirButton
-            // 
-            this.claimFileDirButton.Location = new System.Drawing.Point(608, 30);
-            this.claimFileDirButton.Name = "claimFileDirButton";
-            this.claimFileDirButton.Size = new System.Drawing.Size(95, 23);
-            this.claimFileDirButton.TabIndex = 14;
-            this.claimFileDirButton.Text = "Select File";
-            this.claimFileDirButton.UseVisualStyleBackColor = true;
-            this.claimFileDirButton.Click += new System.EventHandler(this.claimFileDirButton_Click);
-            // 
-            // databaseFile
-            // 
-            this.databaseFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.databaseFile.Location = new System.Drawing.Point(136, 32);
-            this.databaseFile.Name = "databaseFile";
-            this.databaseFile.Size = new System.Drawing.Size(466, 20);
-            this.databaseFile.TabIndex = 15;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 35);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 13);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Library Database File";
-            // 
-            // currentDate
-            // 
-            this.currentDate.CustomFormat = "yyyy-MM-dd";
-            this.currentDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.currentDate.Location = new System.Drawing.Point(136, 82);
-            this.currentDate.MaxDate = new System.DateTime(2020, 12, 31, 0, 0, 0, 0);
-            this.currentDate.MinDate = new System.DateTime(2003, 1, 1, 0, 0, 0, 0);
-            this.currentDate.Name = "currentDate";
-            this.currentDate.Size = new System.Drawing.Size(80, 20);
-            this.currentDate.TabIndex = 17;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(63, 86);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 13);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "Current Date";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,6 +574,8 @@
             this.Text = "The Totally Awesome and Cool Simple Library";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
+            this.settingsTab.ResumeLayout(false);
+            this.settingsTab.PerformLayout();
             this.allBooksTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.allBooksGridView)).EndInit();
             this.overdueBooksTab.ResumeLayout(false);
@@ -584,8 +587,6 @@
             this.availableBooksTab.ResumeLayout(false);
             this.availableBooksTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availableBooksGridView)).EndInit();
-            this.settingsTab.ResumeLayout(false);
-            this.settingsTab.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -1,0 +1,8 @@
+﻿create table patron (id integer primary key autoincrement, name varchar(50) not null, type int not null);
+create table mediaitem (
+    id integer primary key autoincrement,
+    type int not null,
+    name text not null, 
+    checked_to_patron_id int,
+    checkout_date text,
+    due_date text)
