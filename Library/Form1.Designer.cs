@@ -46,7 +46,7 @@
             this.allBooksDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overdueBooksTab = new System.Windows.Forms.TabPage();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cbFilterByCheckedOutPerson = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.overdueGridView = new System.Windows.Forms.DataGridView();
             this.overdueTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -254,7 +254,7 @@
             // overdueBooksTab
             // 
             this.overdueBooksTab.Controls.Add(this.label2);
-            this.overdueBooksTab.Controls.Add(this.comboBox2);
+            this.overdueBooksTab.Controls.Add(this.cbFilterByCheckedOutPerson);
             this.overdueBooksTab.Controls.Add(this.button1);
             this.overdueBooksTab.Controls.Add(this.overdueGridView);
             this.overdueBooksTab.Location = new System.Drawing.Point(4, 22);
@@ -273,13 +273,19 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Filter by books checked out to";
             // 
-            // comboBox2
+            // cbFilterByCheckedOutPerson
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(159, 25);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(291, 21);
-            this.comboBox2.TabIndex = 6;
+            this.cbFilterByCheckedOutPerson.FormattingEnabled = true;
+            this.cbFilterByCheckedOutPerson.Items.AddRange(new object[] {
+            "Frank",
+            "louis",
+            "george",
+            "bob"});
+            this.cbFilterByCheckedOutPerson.Location = new System.Drawing.Point(159, 25);
+            this.cbFilterByCheckedOutPerson.Name = "cbFilterByCheckedOutPerson";
+            this.cbFilterByCheckedOutPerson.Size = new System.Drawing.Size(291, 21);
+            this.cbFilterByCheckedOutPerson.TabIndex = 6;
+            this.cbFilterByCheckedOutPerson.SelectedIndexChanged += new System.EventHandler(this.cbFilterByCheckedOutPerson_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -572,7 +578,6 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "The Totally Awesome and Cool Simple Library";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.settingsTab.ResumeLayout(false);
             this.settingsTab.PerformLayout();
@@ -607,7 +612,7 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cbFilterByCheckedOutPerson;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox3;

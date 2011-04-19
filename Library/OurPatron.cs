@@ -48,5 +48,10 @@ namespace Library
 
             return plist;
         }
+
+        public override string ToString()
+        {
+            return name;
+        }
     }
 }

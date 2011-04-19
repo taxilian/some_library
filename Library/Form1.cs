@@ -18,11 +18,6 @@ namespace Library
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void claimFileDirButton_Click(object sender, EventArgs e)
         {
             DialogResult result = databaseFileDialog.ShowDialog();
@@ -32,6 +27,14 @@ namespace Library
                 databaseFile.Text = databaseFileDialog.FileName;
                 lib.OpenLibrary(databaseFileDialog.FileName);
             }
+
+            List<Patron> patrons = lib.GetAllPatrons();
+            cbFilterByCheckedOutPerson.Items.AddRange(patrons.ToArray());
+        }
+
+        private void cbFilterByCheckedOutPerson_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
