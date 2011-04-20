@@ -16,7 +16,7 @@ namespace Library
         MediaType type { get; set; }
         string name { get; set; }
         Patron checked_to { get; set; }
-        DateTime checkout_date { get; set; }
-        DateTime due_date { get; set; }
+        DateTime? checkout_date { get; set; }
+        DateTime? due_date { get; set; }
     };
 }

@@ -15,19 +15,25 @@ namespace Library
             // TODO: Complete member initialization
             this.conn = conn;
             this.id = id;
+            checked_to_patron_id = -1;
         }
         public int id { get; set; }
         public MediaType type { get; set; }
         public string name { get; set; }
-        public Patron checked_to {
-            get {
-                return OurPatron.get(checked_to_patron_id, conn);
+        public Patron checked_to
+        {
+            get
+            {
+                if (checked_to_patron_id == -1)
+                    return null;
+                else
+                    return OurPatron.get(checked_to_patron_id, conn);
             }
             set {
             }
         }
-        public DateTime checkout_date { get; set; }
-        public DateTime due_date { get; set; }
+        public DateTime? checkout_date { get; set; }
+        public DateTime? due_date { get; set; }
 
         public int checked_to_patron_id {get; set;}
 
@@ -44,6 +50,18 @@ namespace Library
                 OurMediaItem i = new OurMediaItem(conn, rdr.GetInt32(0));
                 i.name = rdr.GetString(1);
                 i.type = (MediaType)rdr.GetInt32(2);
+                if (!rdr.IsDBNull(3))
+                {
+                    i.checked_to_patron_id = rdr.GetInt32(3);
+                }
+                if (!rdr.IsDBNull(4))
+                {
+                    i.checkout_date = DateTime.Parse(rdr.GetString(4));
+                }
+                if (!rdr.IsDBNull(5))
+                {
+                    i.due_date = DateTime.Parse(rdr.GetString(5));
+                }
                 iList.Add(i);
             }
             return iList;

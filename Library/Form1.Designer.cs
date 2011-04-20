@@ -37,25 +37,13 @@
             this.databaseFile = new System.Windows.Forms.TextBox();
             this.allBooksTab = new System.Windows.Forms.TabPage();
             this.allBooksGridView = new System.Windows.Forms.DataGridView();
-            this.overdueBooksTab = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbFilterODByCheckedOutPerson = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.checkedOutBooksTab = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbFilterCOBooksPatron = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.availableBooksTab = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.databaseFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.allBooksTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allGridType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allBooksCheckedOutTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allBooksCheckoutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allBooksDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.overdueBooksTab = new System.Windows.Forms.TabPage();
             this.overDueGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +51,10 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbFilterODByCheckedOutPerson = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.checkedOutBooksTab = new System.Windows.Forms.TabPage();
             this.checkedOutGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -70,20 +62,28 @@
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbFilterCOBooksPatron = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.availableBooksTab = new System.Windows.Forms.TabPage();
+            this.availableGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbCheckoutTo = new System.Windows.Forms.ComboBox();
+            this.databaseFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.settingsTab.SuspendLayout();
             this.allBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allBooksGridView)).BeginInit();
             this.overdueBooksTab.SuspendLayout();
-            this.checkedOutBooksTab.SuspendLayout();
-            this.availableBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.overDueGrid)).BeginInit();
+            this.checkedOutBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkedOutGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.availableBooksTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.availableGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -169,7 +169,7 @@
             this.allBooksTab.Padding = new System.Windows.Forms.Padding(3);
             this.allBooksTab.Size = new System.Drawing.Size(941, 449);
             this.allBooksTab.TabIndex = 0;
-            this.allBooksTab.Text = "All Books";
+            this.allBooksTab.Text = "All Items";
             this.allBooksTab.UseVisualStyleBackColor = true;
             // 
             // allBooksGridView
@@ -186,130 +186,6 @@
             this.allBooksGridView.Name = "allBooksGridView";
             this.allBooksGridView.Size = new System.Drawing.Size(928, 315);
             this.allBooksGridView.TabIndex = 0;
-            // 
-            // overdueBooksTab
-            // 
-            this.overdueBooksTab.Controls.Add(this.overDueGrid);
-            this.overdueBooksTab.Controls.Add(this.label2);
-            this.overdueBooksTab.Controls.Add(this.cbFilterODByCheckedOutPerson);
-            this.overdueBooksTab.Controls.Add(this.button1);
-            this.overdueBooksTab.Location = new System.Drawing.Point(4, 22);
-            this.overdueBooksTab.Name = "overdueBooksTab";
-            this.overdueBooksTab.Size = new System.Drawing.Size(941, 449);
-            this.overdueBooksTab.TabIndex = 2;
-            this.overdueBooksTab.Text = "Overdue Books";
-            this.overdueBooksTab.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 28);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Filter by books checked out to";
-            // 
-            // cbFilterODByCheckedOutPerson
-            // 
-            this.cbFilterODByCheckedOutPerson.FormattingEnabled = true;
-            this.cbFilterODByCheckedOutPerson.Items.AddRange(new object[] {
-            "Frank",
-            "louis",
-            "george",
-            "bob"});
-            this.cbFilterODByCheckedOutPerson.Location = new System.Drawing.Point(159, 25);
-            this.cbFilterODByCheckedOutPerson.Name = "cbFilterODByCheckedOutPerson";
-            this.cbFilterODByCheckedOutPerson.Size = new System.Drawing.Size(291, 21);
-            this.cbFilterODByCheckedOutPerson.TabIndex = 6;
-            this.cbFilterODByCheckedOutPerson.SelectedIndexChanged += new System.EventHandler(this.cbFilterByCheckedOutPerson_SelectedIndexChanged);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(746, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(158, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Check in selected books";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // checkedOutBooksTab
-            // 
-            this.checkedOutBooksTab.Controls.Add(this.checkedOutGrid);
-            this.checkedOutBooksTab.Controls.Add(this.label1);
-            this.checkedOutBooksTab.Controls.Add(this.cbFilterCOBooksPatron);
-            this.checkedOutBooksTab.Controls.Add(this.button2);
-            this.checkedOutBooksTab.Location = new System.Drawing.Point(4, 22);
-            this.checkedOutBooksTab.Name = "checkedOutBooksTab";
-            this.checkedOutBooksTab.Padding = new System.Windows.Forms.Padding(3);
-            this.checkedOutBooksTab.Size = new System.Drawing.Size(941, 449);
-            this.checkedOutBooksTab.TabIndex = 1;
-            this.checkedOutBooksTab.Text = "All Checked Out Books";
-            this.checkedOutBooksTab.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(150, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Filter by books checked out to";
-            // 
-            // cbFilterCOBooksPatron
-            // 
-            this.cbFilterCOBooksPatron.FormattingEnabled = true;
-            this.cbFilterCOBooksPatron.Location = new System.Drawing.Point(162, 23);
-            this.cbFilterCOBooksPatron.Name = "cbFilterCOBooksPatron";
-            this.cbFilterCOBooksPatron.Size = new System.Drawing.Size(291, 21);
-            this.cbFilterCOBooksPatron.TabIndex = 4;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(776, 410);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Check in selected books";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // availableBooksTab
-            // 
-            this.availableBooksTab.Controls.Add(this.dataGridView1);
-            this.availableBooksTab.Controls.Add(this.button3);
-            this.availableBooksTab.Controls.Add(this.label3);
-            this.availableBooksTab.Controls.Add(this.comboBox3);
-            this.availableBooksTab.Location = new System.Drawing.Point(4, 22);
-            this.availableBooksTab.Name = "availableBooksTab";
-            this.availableBooksTab.Size = new System.Drawing.Size(941, 449);
-            this.availableBooksTab.TabIndex = 3;
-            this.availableBooksTab.Text = "Available Books";
-            this.availableBooksTab.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(859, 407);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 8;
-            this.button3.Text = "Check Out";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(413, 412);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(143, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Check out selected books to";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(562, 409);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(291, 21);
-            this.comboBox3.TabIndex = 6;
             // 
             // allBooksTitle
             // 
@@ -356,6 +232,19 @@
             this.allBooksDueDate.ReadOnly = true;
             this.allBooksDueDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.allBooksDueDate.Width = 90;
+            // 
+            // overdueBooksTab
+            // 
+            this.overdueBooksTab.Controls.Add(this.overDueGrid);
+            this.overdueBooksTab.Controls.Add(this.label2);
+            this.overdueBooksTab.Controls.Add(this.cbFilterODByCheckedOutPerson);
+            this.overdueBooksTab.Controls.Add(this.button1);
+            this.overdueBooksTab.Location = new System.Drawing.Point(4, 22);
+            this.overdueBooksTab.Name = "overdueBooksTab";
+            this.overdueBooksTab.Size = new System.Drawing.Size(941, 449);
+            this.overdueBooksTab.TabIndex = 2;
+            this.overdueBooksTab.Text = "Overdue Items";
+            this.overdueBooksTab.UseVisualStyleBackColor = true;
             // 
             // overDueGrid
             // 
@@ -418,6 +307,52 @@
             this.dataGridViewTextBoxColumn6.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn6.Width = 90;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 28);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Filter by books checked out to";
+            // 
+            // cbFilterODByCheckedOutPerson
+            // 
+            this.cbFilterODByCheckedOutPerson.FormattingEnabled = true;
+            this.cbFilterODByCheckedOutPerson.Items.AddRange(new object[] {
+            "Frank",
+            "louis",
+            "george",
+            "bob"});
+            this.cbFilterODByCheckedOutPerson.Location = new System.Drawing.Point(159, 25);
+            this.cbFilterODByCheckedOutPerson.Name = "cbFilterODByCheckedOutPerson";
+            this.cbFilterODByCheckedOutPerson.Size = new System.Drawing.Size(291, 21);
+            this.cbFilterODByCheckedOutPerson.TabIndex = 6;
+            this.cbFilterODByCheckedOutPerson.SelectedIndexChanged += new System.EventHandler(this.cbFilterByCheckedOutPerson_SelectedIndexChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(746, 403);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(158, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Check in selected books";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // checkedOutBooksTab
+            // 
+            this.checkedOutBooksTab.Controls.Add(this.checkedOutGrid);
+            this.checkedOutBooksTab.Controls.Add(this.label1);
+            this.checkedOutBooksTab.Controls.Add(this.cbFilterCOBooksPatron);
+            this.checkedOutBooksTab.Controls.Add(this.button2);
+            this.checkedOutBooksTab.Location = new System.Drawing.Point(4, 22);
+            this.checkedOutBooksTab.Name = "checkedOutBooksTab";
+            this.checkedOutBooksTab.Padding = new System.Windows.Forms.Padding(3);
+            this.checkedOutBooksTab.Size = new System.Drawing.Size(941, 449);
+            this.checkedOutBooksTab.TabIndex = 1;
+            this.checkedOutBooksTab.Text = "Checked Out Items";
+            this.checkedOutBooksTab.UseVisualStyleBackColor = true;
+            // 
             // checkedOutGrid
             // 
             this.checkedOutGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -479,18 +414,57 @@
             this.dataGridViewTextBoxColumn12.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewTextBoxColumn12.Width = 90;
             // 
-            // dataGridView1
+            // label1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(150, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Filter by books checked out to";
+            // 
+            // cbFilterCOBooksPatron
+            // 
+            this.cbFilterCOBooksPatron.FormattingEnabled = true;
+            this.cbFilterCOBooksPatron.Location = new System.Drawing.Point(162, 23);
+            this.cbFilterCOBooksPatron.Name = "cbFilterCOBooksPatron";
+            this.cbFilterCOBooksPatron.Size = new System.Drawing.Size(291, 21);
+            this.cbFilterCOBooksPatron.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(776, 410);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(158, 23);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Check in selected books";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // availableBooksTab
+            // 
+            this.availableBooksTab.Controls.Add(this.availableGrid);
+            this.availableBooksTab.Controls.Add(this.button3);
+            this.availableBooksTab.Controls.Add(this.label3);
+            this.availableBooksTab.Controls.Add(this.cbCheckoutTo);
+            this.availableBooksTab.Location = new System.Drawing.Point(4, 22);
+            this.availableBooksTab.Name = "availableBooksTab";
+            this.availableBooksTab.Size = new System.Drawing.Size(941, 449);
+            this.availableBooksTab.TabIndex = 3;
+            this.availableBooksTab.Text = "Available Items";
+            this.availableBooksTab.UseVisualStyleBackColor = true;
+            // 
+            // availableGrid
+            // 
+            this.availableGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.availableGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 67);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(928, 315);
-            this.dataGridView1.TabIndex = 9;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.availableGrid.Location = new System.Drawing.Point(6, 67);
+            this.availableGrid.Name = "availableGrid";
+            this.availableGrid.Size = new System.Drawing.Size(928, 315);
+            this.availableGrid.TabIndex = 9;
+            this.availableGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // dataGridViewTextBoxColumn13
             // 
@@ -512,6 +486,32 @@
             this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
             this.dataGridViewTextBoxColumn15.ReadOnly = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(859, 407);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 8;
+            this.button3.Text = "Check Out";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(413, 412);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(143, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Check out selected books to";
+            // 
+            // cbCheckoutTo
+            // 
+            this.cbCheckoutTo.FormattingEnabled = true;
+            this.cbCheckoutTo.Location = new System.Drawing.Point(562, 409);
+            this.cbCheckoutTo.Name = "cbCheckoutTo";
+            this.cbCheckoutTo.Size = new System.Drawing.Size(291, 21);
+            this.cbCheckoutTo.TabIndex = 6;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,13 +527,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.allBooksGridView)).EndInit();
             this.overdueBooksTab.ResumeLayout(false);
             this.overdueBooksTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.overDueGrid)).EndInit();
             this.checkedOutBooksTab.ResumeLayout(false);
             this.checkedOutBooksTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.checkedOutGrid)).EndInit();
             this.availableBooksTab.ResumeLayout(false);
             this.availableBooksTab.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.overDueGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.checkedOutGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.availableGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -554,7 +554,7 @@
         private System.Windows.Forms.ComboBox cbFilterODByCheckedOutPerson;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbCheckoutTo;
         private System.Windows.Forms.TabPage settingsTab;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button claimFileDirButton;
@@ -582,7 +582,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView availableGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
