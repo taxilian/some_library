@@ -17,7 +17,7 @@ namespace Library
         }
         public void OpenLibrary(string filename)
         {
-            string connectionString = string.Format("Data Source={0}", filename);
+            string connectionString = string.Format("Data Source=file://{0}", filename);
             conn = new SqliteConnection(connectionString);
             conn.Open();
         }

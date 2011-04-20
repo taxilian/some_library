@@ -29,10 +29,29 @@ namespace Library
             }
 
             List<Patron> patrons = lib.GetAllPatrons();
-            cbFilterByCheckedOutPerson.Items.AddRange(patrons.ToArray());
+            cbFilterODByCheckedOutPerson.Items.Clear();
+            cbFilterODByCheckedOutPerson.Items.AddRange(patrons.ToArray());
+            cbFilterCOBooksPatron.Items.Clear();
+            cbFilterCOBooksPatron.Items.AddRange(patrons.ToArray());
+
+            allBooksGridView.Rows.Clear();
+            List<MediaItem> items = lib.GetMediaItems();
+            int r = 0;
+            foreach (MediaItem item in items)
+            {
+                allBooksGridView.Rows.Add();
+                allBooksGridView.Rows[r].Cells[0].Value = item.name;
+                allBooksGridView.Rows[r].Cells[1].Value = item.type.ToString();
+                r++;
+            }
         }
 
         private void cbFilterByCheckedOutPerson_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

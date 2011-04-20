@@ -44,6 +44,7 @@ namespace Library
                 OurMediaItem i = new OurMediaItem(conn, rdr.GetInt32(0));
                 i.name = rdr.GetString(1);
                 i.type = (MediaType)rdr.GetInt32(2);
+                iList.Add(i);
             }
             return iList;
         }

@@ -44,6 +44,7 @@ namespace Library
                 OurPatron p = new OurPatron(conn, rdr.GetInt32(0));
                 p.name = rdr.GetString(1);
                 p.type = (PatronType)rdr.GetInt32(2);
+                plist.Add(p);
             }
 
             return plist;
