@@ -64,7 +64,7 @@
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFilterCOBooksPatron = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCheckIn = new System.Windows.Forms.Button();
             this.availableBooksTab = new System.Windows.Forms.TabPage();
             this.availableGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -339,6 +339,7 @@
             // 
             // cbFilterODByCheckedOutPerson
             // 
+            this.cbFilterODByCheckedOutPerson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterODByCheckedOutPerson.FormattingEnabled = true;
             this.cbFilterODByCheckedOutPerson.Items.AddRange(new object[] {
             "Frank",
@@ -349,7 +350,7 @@
             this.cbFilterODByCheckedOutPerson.Name = "cbFilterODByCheckedOutPerson";
             this.cbFilterODByCheckedOutPerson.Size = new System.Drawing.Size(291, 21);
             this.cbFilterODByCheckedOutPerson.TabIndex = 6;
-            this.cbFilterODByCheckedOutPerson.SelectedIndexChanged += new System.EventHandler(this.cbFilterByCheckedOutPerson_SelectedIndexChanged);
+            this.cbFilterODByCheckedOutPerson.SelectedIndexChanged += new System.EventHandler(this.cbFilterODByCheckedOutPerson_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -365,7 +366,7 @@
             this.checkedOutBooksTab.Controls.Add(this.checkedOutGrid);
             this.checkedOutBooksTab.Controls.Add(this.label1);
             this.checkedOutBooksTab.Controls.Add(this.cbFilterCOBooksPatron);
-            this.checkedOutBooksTab.Controls.Add(this.button2);
+            this.checkedOutBooksTab.Controls.Add(this.btnCheckIn);
             this.checkedOutBooksTab.Location = new System.Drawing.Point(4, 22);
             this.checkedOutBooksTab.Name = "checkedOutBooksTab";
             this.checkedOutBooksTab.Padding = new System.Windows.Forms.Padding(3);
@@ -452,20 +453,23 @@
             // 
             // cbFilterCOBooksPatron
             // 
+            this.cbFilterCOBooksPatron.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbFilterCOBooksPatron.FormattingEnabled = true;
             this.cbFilterCOBooksPatron.Location = new System.Drawing.Point(162, 23);
             this.cbFilterCOBooksPatron.Name = "cbFilterCOBooksPatron";
             this.cbFilterCOBooksPatron.Size = new System.Drawing.Size(291, 21);
             this.cbFilterCOBooksPatron.TabIndex = 4;
+            this.cbFilterCOBooksPatron.SelectedIndexChanged += new System.EventHandler(this.cbFilterCOBooksPatron_SelectedIndexChanged);
             // 
-            // button2
+            // btnCheckIn
             // 
-            this.button2.Location = new System.Drawing.Point(776, 410);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(158, 23);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Check in selected books";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Location = new System.Drawing.Point(776, 410);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(158, 23);
+            this.btnCheckIn.TabIndex = 3;
+            this.btnCheckIn.Text = "Check in selected books";
+            this.btnCheckIn.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
             // availableBooksTab
             // 
@@ -554,9 +558,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 565);
+            this.ClientSize = new System.Drawing.Size(967, 494);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "The Totally Awesome and Cool Simple Library";
             this.tabControl1.ResumeLayout(false);
             this.settingsTab.ResumeLayout(false);
@@ -587,7 +593,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbFilterCOBooksPatron;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCheckIn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbFilterODByCheckedOutPerson;
         private System.Windows.Forms.Button button3;

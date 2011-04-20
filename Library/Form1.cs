@@ -30,8 +30,10 @@ namespace Library
 
             List<Patron> patrons = lib.GetAllPatrons();
             cbFilterODByCheckedOutPerson.Items.Clear();
+            cbFilterODByCheckedOutPerson.Items.Add("All");
             cbFilterODByCheckedOutPerson.Items.AddRange(patrons.ToArray());
             cbFilterCOBooksPatron.Items.Clear();
+            cbFilterCOBooksPatron.Items.Add("All");
             cbFilterCOBooksPatron.Items.AddRange(patrons.ToArray());
             cbCheckoutTo.Items.Clear();
             cbCheckoutTo.Items.AddRange(patrons.ToArray());
@@ -95,7 +97,7 @@ namespace Library
 
         private void UpdateOverdueGrid()
         {
-            List<MediaItem> items = lib.GetCheckedOutMedia();
+            List<MediaItem> items = lib.GetCheckedOutMedia(cbFilterODByCheckedOutPerson.SelectedItem as Patron);
             overDueGrid.Rows.Clear();
             int r = 0;
             foreach (MediaItem item in items)
@@ -121,7 +123,7 @@ namespace Library
 
         private void UpdateCheckedOutGrid()
         {
-            List<MediaItem> items = lib.GetCheckedOutMedia();
+            List<MediaItem> items = lib.GetCheckedOutMedia(cbFilterCOBooksPatron.SelectedItem as Patron);
             checkedOutGrid.Rows.Clear();
             int r = 0;
             foreach (MediaItem item in items)
@@ -144,11 +146,6 @@ namespace Library
                 }
                 r++;
             }
-        }
-
-        private void cbFilterByCheckedOutPerson_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -187,6 +184,29 @@ namespace Library
         private void currentDate_ValueChanged(object sender, EventArgs e)
         {
             UpdateGrids();
+        }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in checkedOutGrid.SelectedRows)
+            {
+                MediaItem item = row.Tag as MediaItem;
+                item.checked_to = null;
+                item.checkout_date = null;
+                item.due_date = null;
+                lib.save(item);
+            }
+            UpdateGrids();
+        }
+
+        private void cbFilterODByCheckedOutPerson_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateOverdueGrid();
+        }
+
+        private void cbFilterCOBooksPatron_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateCheckedOutGrid();
         }
     }
 }

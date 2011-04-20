@@ -30,7 +30,10 @@ namespace Library
                     return OurPatron.get(checked_to_patron_id, conn);
             }
             set {
-                checked_to_patron_id = (value as OurPatron).id;
+                if (value == null)
+                    checked_to_patron_id = -1;
+                else
+                    checked_to_patron_id = (value as OurPatron).id;
             }
         }
         public DateTime? checkout_date { get; set; }
@@ -53,10 +56,16 @@ namespace Library
             cmd.Parameters.Add("@type", type);
             if (checked_to_patron_id > -1)
                 cmd.Parameters.Add("@patron_id", checked_to_patron_id);
+            else
+                cmd.Parameters.Add("@patron_id", null);
             if (checkout_date != null)
                 cmd.Parameters.Add("@co_date", checkout_date.Value.ToString());
+            else
+                cmd.Parameters.Add("@co_date", null);
             if (due_date != null)
                 cmd.Parameters.Add("@due_date", due_date);
+            else
+                cmd.Parameters.Add("@due_date", null);
 
             cmd.ExecuteNonQuery();
             //id = cmd.LastInsertRowID();
@@ -92,9 +101,12 @@ namespace Library
             return iList;
         }
 
-        internal static List<MediaItem> getCheckedOutItems(SqliteConnection conn)
+        internal static List<MediaItem> getCheckedOutItems(SqliteConnection conn, Patron p = null)
         {
-            return getItems(conn, "where checked_to_patron_id is not null");
+            if (p != null)
+                return getItems(conn, "where checked_to_patron_id = " + (p as OurPatron).id.ToString());
+            else
+                return getItems(conn, "where checked_to_patron_id is not null");
         }
     }
 }

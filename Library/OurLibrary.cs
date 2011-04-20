@@ -21,7 +21,7 @@ namespace Library
             conn = new SqliteConnection(connectionString);
             conn.Open();
         }
-        public List<MediaItem> GetMediaItems(Patron p = null)
+        public List<MediaItem> GetMediaItems()
         {
             return OurMediaItem.getItems(conn);
         }
@@ -31,9 +31,9 @@ namespace Library
             return OurPatron.getAll(conn);
         }
 
-        public List<MediaItem> GetCheckedOutMedia()
+        public List<MediaItem> GetCheckedOutMedia(Patron p = null)
         {
-            return OurMediaItem.getCheckedOutItems(conn);
+            return OurMediaItem.getCheckedOutItems(conn, p);
         }
 
         public void save(MediaItem item)
