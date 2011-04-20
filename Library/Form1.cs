@@ -36,6 +36,11 @@ namespace Library
             cbCheckoutTo.Items.Clear();
             cbCheckoutTo.Items.AddRange(patrons.ToArray());
 
+            UpdateGrids();
+        }
+
+        private void UpdateGrids()
+        {
             UpdateAllBooksGrid();
             UpdateAvailableGrid();
             UpdateCheckedOutGrid();
@@ -50,12 +55,13 @@ namespace Library
             foreach (MediaItem item in items)
             {
                 allBooksGridView.Rows.Add();
+                allBooksGridView.Rows[r].Tag = item;
                 allBooksGridView.Rows[r].Cells[0].Value = item.name;
                 allBooksGridView.Rows[r].Cells[1].Value = item.type.ToString();
                 string status = "Available";
                 if (item.checkout_date != null)
                     status = "Checked Out";
-                else if (item.due_date != null && item.due_date.Value <= currentDate.Value)
+                if (item.due_date != null && item.due_date.Value < currentDate.Value)
                     status = "Overdue";
                 allBooksGridView.Rows[r].Cells[2].Value = status;
                 if (item.checked_to != null)
@@ -78,6 +84,7 @@ namespace Library
                 if (item.checkout_date != null)
                     continue;
                 availableGrid.Rows.Add();
+                availableGrid.Rows[r].Tag = item;
                 availableGrid.Rows[r].Cells[0].Value = item.name;
                 availableGrid.Rows[r].Cells[1].Value = item.type.ToString();
                 string status = "Available";
@@ -93,10 +100,11 @@ namespace Library
             int r = 0;
             foreach (MediaItem item in items)
             {
-                if (item.due_date.Value <= currentDate.Value)
+                if (item.due_date.Value > currentDate.Value)
                     continue;
                 
                 overDueGrid.Rows.Add();
+                overDueGrid.Rows[r].Tag = item;
                 overDueGrid.Rows[r].Cells[0].Value = item.name;
                 overDueGrid.Rows[r].Cells[1].Value = item.type.ToString();
                 string status = "Overdue";
@@ -119,12 +127,13 @@ namespace Library
             foreach (MediaItem item in items)
             {
                 checkedOutGrid.Rows.Add();
+                checkedOutGrid.Rows[r].Tag = item;
                 checkedOutGrid.Rows[r].Cells[0].Value = item.name;
                 checkedOutGrid.Rows[r].Cells[1].Value = item.type.ToString();
                 string status = "Available";
                 if (item.checkout_date != null)
                     status = "Checked Out";
-                else if (item.due_date != null && item.due_date.Value <= currentDate.Value)
+                if (item.due_date != null && item.due_date.Value < currentDate.Value)
                     status = "Overdue";
                 checkedOutGrid.Rows[r].Cells[2].Value = status;
                 if (item.checked_to != null)
@@ -145,6 +154,39 @@ namespace Library
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            // checkout button
+            foreach (DataGridViewRow row in availableGrid.SelectedRows)
+        	{
+                MediaItem item = row.Tag as MediaItem;
+                Patron patron = cbCheckoutTo.SelectedItem as Patron;
+                item.checked_to = patron;
+                item.checkout_date = DateTime.Now;
+                DateTime due = DateTime.Now;
+                switch (item.type)
+                {
+                    case MediaType.Adult_book:
+                        due += new TimeSpan(14, 0, 0, 0);
+                        break;
+                    case MediaType.Childs_book:
+                        due += new TimeSpan(7, 0, 0, 0);
+                        break;
+                    case MediaType.Video:
+                        due += new TimeSpan(4, 0, 0, 0);
+                        break;
+                }
+                item.due_date = due;
+                lib.save(item);
+        	}
+            UpdateGrids();
+        }
+
+        private void currentDate_ValueChanged(object sender, EventArgs e)
+        {
+            UpdateGrids();
         }
     }
 }

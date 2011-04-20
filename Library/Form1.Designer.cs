@@ -132,6 +132,7 @@
             this.currentDate.Name = "currentDate";
             this.currentDate.Size = new System.Drawing.Size(80, 20);
             this.currentDate.TabIndex = 17;
+            this.currentDate.ValueChanged += new System.EventHandler(this.currentDate_ValueChanged);
             // 
             // label4
             // 
@@ -174,6 +175,10 @@
             // 
             // allBooksGridView
             // 
+            this.allBooksGridView.AllowUserToAddRows = false;
+            this.allBooksGridView.AllowUserToDeleteRows = false;
+            this.allBooksGridView.AllowUserToResizeRows = false;
+            this.allBooksGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.allBooksGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.allBooksGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.allBooksTitle,
@@ -182,9 +187,15 @@
             this.allBooksCheckedOutTo,
             this.allBooksCheckoutDate,
             this.allBooksDueDate});
-            this.allBooksGridView.Location = new System.Drawing.Point(7, 43);
+            this.allBooksGridView.Location = new System.Drawing.Point(7, 6);
             this.allBooksGridView.Name = "allBooksGridView";
-            this.allBooksGridView.Size = new System.Drawing.Size(928, 315);
+            this.allBooksGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.allBooksGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.allBooksGridView.ShowCellErrors = false;
+            this.allBooksGridView.ShowCellToolTips = false;
+            this.allBooksGridView.ShowEditingIcon = false;
+            this.allBooksGridView.ShowRowErrors = false;
+            this.allBooksGridView.Size = new System.Drawing.Size(928, 437);
             this.allBooksGridView.TabIndex = 0;
             // 
             // allBooksTitle
@@ -248,6 +259,10 @@
             // 
             // overDueGrid
             // 
+            this.overDueGrid.AllowUserToAddRows = false;
+            this.overDueGrid.AllowUserToDeleteRows = false;
+            this.overDueGrid.AllowUserToResizeRows = false;
+            this.overDueGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.overDueGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.overDueGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -258,6 +273,12 @@
             this.dataGridViewTextBoxColumn6});
             this.overDueGrid.Location = new System.Drawing.Point(6, 67);
             this.overDueGrid.Name = "overDueGrid";
+            this.overDueGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.overDueGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.overDueGrid.ShowCellErrors = false;
+            this.overDueGrid.ShowCellToolTips = false;
+            this.overDueGrid.ShowEditingIcon = false;
+            this.overDueGrid.ShowRowErrors = false;
             this.overDueGrid.Size = new System.Drawing.Size(928, 315);
             this.overDueGrid.TabIndex = 8;
             // 
@@ -355,6 +376,10 @@
             // 
             // checkedOutGrid
             // 
+            this.checkedOutGrid.AllowUserToAddRows = false;
+            this.checkedOutGrid.AllowUserToDeleteRows = false;
+            this.checkedOutGrid.AllowUserToResizeRows = false;
+            this.checkedOutGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.checkedOutGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.checkedOutGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
@@ -365,6 +390,8 @@
             this.dataGridViewTextBoxColumn12});
             this.checkedOutGrid.Location = new System.Drawing.Point(6, 67);
             this.checkedOutGrid.Name = "checkedOutGrid";
+            this.checkedOutGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.checkedOutGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.checkedOutGrid.Size = new System.Drawing.Size(928, 315);
             this.checkedOutGrid.TabIndex = 6;
             // 
@@ -455,6 +482,10 @@
             // 
             // availableGrid
             // 
+            this.availableGrid.AllowUserToAddRows = false;
+            this.availableGrid.AllowUserToDeleteRows = false;
+            this.availableGrid.AllowUserToResizeRows = false;
+            this.availableGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.availableGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.availableGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn13,
@@ -462,6 +493,12 @@
             this.dataGridViewTextBoxColumn15});
             this.availableGrid.Location = new System.Drawing.Point(6, 67);
             this.availableGrid.Name = "availableGrid";
+            this.availableGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.availableGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.availableGrid.ShowCellErrors = false;
+            this.availableGrid.ShowCellToolTips = false;
+            this.availableGrid.ShowEditingIcon = false;
+            this.availableGrid.ShowRowErrors = false;
             this.availableGrid.Size = new System.Drawing.Size(928, 315);
             this.availableGrid.TabIndex = 9;
             this.availableGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -494,6 +531,7 @@
             this.button3.TabIndex = 8;
             this.button3.Text = "Check Out";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label3
             // 

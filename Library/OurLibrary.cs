@@ -35,5 +35,14 @@ namespace Library
         {
             return OurMediaItem.getCheckedOutItems(conn);
         }
+
+        public void save(MediaItem item)
+        {
+            (item as OurMediaItem).save(conn);
+        }
+        public void save(Patron item)
+        {
+            (item as OurPatron).save(conn);
+        }
     }
 }

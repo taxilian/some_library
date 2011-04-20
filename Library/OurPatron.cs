@@ -54,5 +54,11 @@ namespace Library
         {
             return name;
         }
+
+        public void save(SqliteConnection conn)
+        {
+            throw new Exception("The method or operation is not implemented.");
+        }
+
     }
 }

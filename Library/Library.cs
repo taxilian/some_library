@@ -11,5 +11,8 @@ namespace Library
         List<MediaItem> GetMediaItems(Patron p = null);
         List<Patron> GetAllPatrons();
         List<MediaItem> GetCheckedOutMedia();
+
+        void save(MediaItem item);
+        void save(Patron item);
     }
 }
