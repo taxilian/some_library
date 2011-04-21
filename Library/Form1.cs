@@ -172,30 +172,37 @@ namespace Library
         private void button3_Click(object sender, EventArgs e)
         {
             // checkout button
-            foreach (DataGridViewRow row in availableGrid.SelectedRows)
-        	{
-                MediaItem item = row.Tag as MediaItem;
-                Patron patron = cbCheckoutTo.SelectedItem as Patron;
-                item.checked_to = patron;
-                item.checkout_date = DateTime.Now;
-                DateTime due = DateTime.Now;
-                switch (item.type)
+            Patron patron = cbCheckoutTo.SelectedItem as Patron;
+            if (patron != null)
+            {
+                foreach (DataGridViewRow row in availableGrid.SelectedRows)
                 {
-                    case MediaType.Adult_book:
-                        due += new TimeSpan(14, 0, 0, 0);
-                        break;
-                    case MediaType.Childs_book:
-                        due += new TimeSpan(7, 0, 0, 0);
-                        break;
-                    case MediaType.DVD:
-                    case MediaType.Video:
-                        due += new TimeSpan(4, 0, 0, 0);
-                        break;
+                    MediaItem item = row.Tag as MediaItem;
+                    item.checked_to = patron;
+                    item.checkout_date = DateTime.Now;
+                    DateTime due = DateTime.Now;
+                    switch (item.type)
+                    {
+                        case MediaType.Adult_book:
+                            due += new TimeSpan(14, 0, 0, 0);
+                            break;
+                        case MediaType.Childs_book:
+                            due += new TimeSpan(7, 0, 0, 0);
+                            break;
+                        case MediaType.DVD:
+                        case MediaType.Video:
+                            due += new TimeSpan(4, 0, 0, 0);
+                            break;
+                    }
+                    item.due_date = due;
+                    lib.save(item);
                 }
-                item.due_date = due;
-                lib.save(item);
-        	}
-            UpdateGrids();
+                UpdateGrids();
+            }
+            else
+            {
+                //TODO: error message indicating they need to select a patron
+            }
         }
 
         private void currentDate_ValueChanged(object sender, EventArgs e)
