@@ -43,6 +43,10 @@
             this.allBooksCheckedOutTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allBooksCheckoutDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.allBooksDueDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.allPatronsTab = new System.Windows.Forms.TabPage();
+            this.allPatronsGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.overdueBooksTab = new System.Windows.Forms.TabPage();
             this.overDueGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,23 +77,19 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbCheckoutTo = new System.Windows.Forms.ComboBox();
-            this.allPatronsTab = new System.Windows.Forms.TabPage();
-            this.allPatronsGridView = new System.Windows.Forms.DataGridView();
             this.databaseFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.settingsTab.SuspendLayout();
             this.allBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.allBooksGridView)).BeginInit();
+            this.allPatronsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allPatronsGridView)).BeginInit();
             this.overdueBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.overDueGrid)).BeginInit();
             this.checkedOutBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.checkedOutGrid)).BeginInit();
             this.availableBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availableGrid)).BeginInit();
-            this.allPatronsTab.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.allPatronsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -251,6 +251,52 @@
             this.allBooksDueDate.ReadOnly = true;
             this.allBooksDueDate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.allBooksDueDate.Width = 90;
+            // 
+            // allPatronsTab
+            // 
+            this.allPatronsTab.Controls.Add(this.allPatronsGridView);
+            this.allPatronsTab.Location = new System.Drawing.Point(4, 22);
+            this.allPatronsTab.Name = "allPatronsTab";
+            this.allPatronsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.allPatronsTab.Size = new System.Drawing.Size(941, 449);
+            this.allPatronsTab.TabIndex = 5;
+            this.allPatronsTab.Text = "All Patrons";
+            this.allPatronsTab.UseVisualStyleBackColor = true;
+            // 
+            // allPatronsGridView
+            // 
+            this.allPatronsGridView.AllowUserToAddRows = false;
+            this.allPatronsGridView.AllowUserToDeleteRows = false;
+            this.allPatronsGridView.AllowUserToResizeRows = false;
+            this.allPatronsGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.allPatronsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.allPatronsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17});
+            this.allPatronsGridView.Location = new System.Drawing.Point(6, 6);
+            this.allPatronsGridView.Name = "allPatronsGridView";
+            this.allPatronsGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.allPatronsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.allPatronsGridView.ShowCellErrors = false;
+            this.allPatronsGridView.ShowCellToolTips = false;
+            this.allPatronsGridView.ShowEditingIcon = false;
+            this.allPatronsGridView.ShowRowErrors = false;
+            this.allPatronsGridView.Size = new System.Drawing.Size(928, 437);
+            this.allPatronsGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn16.MaxInputLength = 120;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 190;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Patron Type";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // overdueBooksTab
             // 
@@ -503,7 +549,7 @@
             this.dataGridViewTextBoxColumn13,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15});
-            this.availableGrid.Location = new System.Drawing.Point(6, 67);
+            this.availableGrid.Location = new System.Drawing.Point(6, 3);
             this.availableGrid.Name = "availableGrid";
             this.availableGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.availableGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -511,7 +557,7 @@
             this.availableGrid.ShowCellToolTips = false;
             this.availableGrid.ShowEditingIcon = false;
             this.availableGrid.ShowRowErrors = false;
-            this.availableGrid.Size = new System.Drawing.Size(928, 315);
+            this.availableGrid.Size = new System.Drawing.Size(928, 398);
             this.availableGrid.TabIndex = 9;
             this.availableGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -556,57 +602,12 @@
             // 
             // cbCheckoutTo
             // 
+            this.cbCheckoutTo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbCheckoutTo.FormattingEnabled = true;
             this.cbCheckoutTo.Location = new System.Drawing.Point(562, 409);
             this.cbCheckoutTo.Name = "cbCheckoutTo";
             this.cbCheckoutTo.Size = new System.Drawing.Size(291, 21);
             this.cbCheckoutTo.TabIndex = 6;
-            // 
-            // allPatronsTab
-            // 
-            this.allPatronsTab.Controls.Add(this.allPatronsGridView);
-            this.allPatronsTab.Location = new System.Drawing.Point(4, 22);
-            this.allPatronsTab.Name = "allPatronsTab";
-            this.allPatronsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.allPatronsTab.Size = new System.Drawing.Size(941, 449);
-            this.allPatronsTab.TabIndex = 5;
-            this.allPatronsTab.Text = "All Patrons";
-            this.allPatronsTab.UseVisualStyleBackColor = true;
-            // 
-            // allPatronsGridView
-            // 
-            this.allPatronsGridView.AllowUserToAddRows = false;
-            this.allPatronsGridView.AllowUserToDeleteRows = false;
-            this.allPatronsGridView.AllowUserToResizeRows = false;
-            this.allPatronsGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.allPatronsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.allPatronsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17});
-            this.allPatronsGridView.Location = new System.Drawing.Point(6, 6);
-            this.allPatronsGridView.Name = "allPatronsGridView";
-            this.allPatronsGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.allPatronsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.allPatronsGridView.ShowCellErrors = false;
-            this.allPatronsGridView.ShowCellToolTips = false;
-            this.allPatronsGridView.ShowEditingIcon = false;
-            this.allPatronsGridView.ShowRowErrors = false;
-            this.allPatronsGridView.Size = new System.Drawing.Size(928, 437);
-            this.allPatronsGridView.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn16.MaxInputLength = 120;
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Width = 190;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.HeaderText = "Patron Type";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
             // 
             // Form1
             // 
@@ -623,6 +624,8 @@
             this.settingsTab.PerformLayout();
             this.allBooksTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.allBooksGridView)).EndInit();
+            this.allPatronsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.allPatronsGridView)).EndInit();
             this.overdueBooksTab.ResumeLayout(false);
             this.overdueBooksTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.overDueGrid)).EndInit();
@@ -632,8 +635,6 @@
             this.availableBooksTab.ResumeLayout(false);
             this.availableBooksTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availableGrid)).EndInit();
-            this.allPatronsTab.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.allPatronsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
