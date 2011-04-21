@@ -9,6 +9,7 @@ namespace Library
     {
         Adult_book = 1,
         Childs_book,
+        DVD,
         Video
     };
     public interface MediaItem

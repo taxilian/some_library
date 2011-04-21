@@ -53,9 +53,16 @@ namespace Library
         private void UpdateGrids()
         {
             UpdateAllBooksGrid();
+            UpdateAllPatronsGrid();
             UpdateAvailableGrid();
             UpdateCheckedOutGrid();
             UpdateOverdueGrid();
+        }
+
+        private void UpdateAllPatronsGrid()
+        {
+            allPatronsGridView.Rows.Clear();
+           
         }
 
         private void UpdateAllBooksGrid()
@@ -180,6 +187,7 @@ namespace Library
                     case MediaType.Childs_book:
                         due += new TimeSpan(7, 0, 0, 0);
                         break;
+                    case MediaType.DVD:
                     case MediaType.Video:
                         due += new TimeSpan(4, 0, 0, 0);
                         break;
@@ -222,5 +230,7 @@ namespace Library
         {
 
         }
+
+       
     }
 }

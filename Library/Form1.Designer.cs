@@ -73,7 +73,11 @@
             this.button3 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cbCheckoutTo = new System.Windows.Forms.ComboBox();
+            this.allPatronsTab = new System.Windows.Forms.TabPage();
+            this.allPatronsGridView = new System.Windows.Forms.DataGridView();
             this.databaseFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.settingsTab.SuspendLayout();
             this.allBooksTab.SuspendLayout();
@@ -84,12 +88,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.checkedOutGrid)).BeginInit();
             this.availableBooksTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availableGrid)).BeginInit();
+            this.allPatronsTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.allPatronsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.settingsTab);
             this.tabControl1.Controls.Add(this.allBooksTab);
+            this.tabControl1.Controls.Add(this.allPatronsTab);
             this.tabControl1.Controls.Add(this.overdueBooksTab);
             this.tabControl1.Controls.Add(this.checkedOutBooksTab);
             this.tabControl1.Controls.Add(this.availableBooksTab);
@@ -188,7 +195,7 @@
             this.allBooksCheckedOutTo,
             this.allBooksCheckoutDate,
             this.allBooksDueDate});
-            this.allBooksGridView.Location = new System.Drawing.Point(7, 6);
+            this.allBooksGridView.Location = new System.Drawing.Point(0, 0);
             this.allBooksGridView.Name = "allBooksGridView";
             this.allBooksGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.allBooksGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -332,7 +339,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 28);
+            this.label2.Location = new System.Drawing.Point(6, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(150, 13);
             this.label2.TabIndex = 7;
@@ -347,7 +354,7 @@
             "louis",
             "george",
             "bob"});
-            this.cbFilterODByCheckedOutPerson.Location = new System.Drawing.Point(159, 25);
+            this.cbFilterODByCheckedOutPerson.Location = new System.Drawing.Point(162, 23);
             this.cbFilterODByCheckedOutPerson.Name = "cbFilterODByCheckedOutPerson";
             this.cbFilterODByCheckedOutPerson.Size = new System.Drawing.Size(291, 21);
             this.cbFilterODByCheckedOutPerson.TabIndex = 6;
@@ -555,6 +562,52 @@
             this.cbCheckoutTo.Size = new System.Drawing.Size(291, 21);
             this.cbCheckoutTo.TabIndex = 6;
             // 
+            // allPatronsTab
+            // 
+            this.allPatronsTab.Controls.Add(this.allPatronsGridView);
+            this.allPatronsTab.Location = new System.Drawing.Point(4, 22);
+            this.allPatronsTab.Name = "allPatronsTab";
+            this.allPatronsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.allPatronsTab.Size = new System.Drawing.Size(941, 449);
+            this.allPatronsTab.TabIndex = 5;
+            this.allPatronsTab.Text = "All Patrons";
+            this.allPatronsTab.UseVisualStyleBackColor = true;
+            // 
+            // allPatronsGridView
+            // 
+            this.allPatronsGridView.AllowUserToAddRows = false;
+            this.allPatronsGridView.AllowUserToDeleteRows = false;
+            this.allPatronsGridView.AllowUserToResizeRows = false;
+            this.allPatronsGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.allPatronsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.allPatronsGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn16,
+            this.dataGridViewTextBoxColumn17});
+            this.allPatronsGridView.Location = new System.Drawing.Point(6, 6);
+            this.allPatronsGridView.Name = "allPatronsGridView";
+            this.allPatronsGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.allPatronsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.allPatronsGridView.ShowCellErrors = false;
+            this.allPatronsGridView.ShowCellToolTips = false;
+            this.allPatronsGridView.ShowEditingIcon = false;
+            this.allPatronsGridView.ShowRowErrors = false;
+            this.allPatronsGridView.Size = new System.Drawing.Size(928, 437);
+            this.allPatronsGridView.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn16.MaxInputLength = 120;
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Width = 190;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.HeaderText = "Patron Type";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -579,6 +632,8 @@
             this.availableBooksTab.ResumeLayout(false);
             this.availableBooksTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.availableGrid)).EndInit();
+            this.allPatronsTab.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.allPatronsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -607,12 +662,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker currentDate;
         private System.Windows.Forms.OpenFileDialog databaseFileDialog;
-        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn allGridType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksCheckedOutTo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksCheckoutDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksDueDate;
         private System.Windows.Forms.DataGridView overDueGrid;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -631,6 +680,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private System.Windows.Forms.TabPage allPatronsTab;
+        private System.Windows.Forms.DataGridView allPatronsGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allGridType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksCheckedOutTo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksCheckoutDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn allBooksDueDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
     }
 }
 
