@@ -190,8 +190,10 @@ namespace Library
                             due += new TimeSpan(7, 0, 0, 0);
                             break;
                         case MediaType.DVD:
+                            due += new TimeSpan(2, 0, 0, 0);
+                            break;
                         case MediaType.Video:
-                            due += new TimeSpan(4, 0, 0, 0);
+                            due += new TimeSpan(3, 0, 0, 0);
                             break;
                     }
                     item.due_date = due;
