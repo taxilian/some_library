@@ -22,23 +22,32 @@ namespace Library
         {
             DialogResult result = databaseFileDialog.ShowDialog();
 
+            cbFilterODByCheckedOutPerson.Items.Clear();
+            cbFilterODByCheckedOutPerson.Items.Add("All");
+
+            cbFilterCOBooksPatron.Items.Clear();
+            cbFilterCOBooksPatron.Items.Add("All");
+
+            cbCheckoutTo.Items.Clear();
+
             if (result == DialogResult.OK)
             {
                 databaseFile.Text = databaseFileDialog.FileName;
                 lib.OpenLibrary(databaseFileDialog.FileName);
+                try
+                {
+                    List<Patron> patrons = lib.GetAllPatrons();
+                    cbFilterODByCheckedOutPerson.Items.AddRange(patrons.ToArray());
+                    cbFilterCOBooksPatron.Items.AddRange(patrons.ToArray());
+                    cbCheckoutTo.Items.AddRange(patrons.ToArray());
+
+                    UpdateGrids();
+                }
+                catch (Exception loadingException)
+                {
+
+                }
             }
-
-            List<Patron> patrons = lib.GetAllPatrons();
-            cbFilterODByCheckedOutPerson.Items.Clear();
-            cbFilterODByCheckedOutPerson.Items.Add("All");
-            cbFilterODByCheckedOutPerson.Items.AddRange(patrons.ToArray());
-            cbFilterCOBooksPatron.Items.Clear();
-            cbFilterCOBooksPatron.Items.Add("All");
-            cbFilterCOBooksPatron.Items.AddRange(patrons.ToArray());
-            cbCheckoutTo.Items.Clear();
-            cbCheckoutTo.Items.AddRange(patrons.ToArray());
-
-            UpdateGrids();
         }
 
         private void UpdateGrids()
@@ -207,6 +216,11 @@ namespace Library
         private void cbFilterCOBooksPatron_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateCheckedOutGrid();
+        }
+
+        private void databaseFile_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
