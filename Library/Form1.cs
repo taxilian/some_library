@@ -229,7 +229,8 @@ namespace Library
             }
             else
             {
-                //TODO: error message indicating they need to select a patron
+                MessageBox.Show("Please select a patron.");
+                return;
             }
         }
 
