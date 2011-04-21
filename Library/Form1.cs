@@ -62,7 +62,12 @@ namespace Library
         private void UpdateAllPatronsGrid()
         {
             allPatronsGridView.Rows.Clear();
-           
+            List<Patron> patrons = lib.GetAllPatrons();
+            int r = 0;
+            foreach (Patron p in patrons)
+            {
+                allPatronsGridView.Rows.Add(new object[] { p.name, p.type.ToString() });
+            }
         }
 
         private void UpdateAllBooksGrid()
