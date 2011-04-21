@@ -16,6 +16,7 @@ namespace Library
         public Form1()
         {
             InitializeComponent();
+            databaseFileDialog.Filter = "Some Library Database (*.db)|*.db";
         }
 
         private void claimFileDirButton_Click(object sender, EventArgs e)
@@ -180,6 +181,26 @@ namespace Library
             Patron patron = cbCheckoutTo.SelectedItem as Patron;
             if (patron != null)
             {
+                int allowed = patron.type == PatronType.Adult ? 6 : 3;
+                int current = lib.GetCheckedOutMedia(patron).Count;
+                if (current + availableGrid.SelectedRows.Count > allowed)
+                {
+                    MessageBox.Show("This patron already has " + current.ToString() + " items checked out" +
+                        " and can only check out " + (allowed - current).ToString() + " more.");
+                    return;
+                }
+                else if (patron.type == PatronType.Child)
+                {
+                    foreach (DataGridViewRow row in availableGrid.SelectedRows)
+                    {
+                        MediaItem item = row.Tag as MediaItem;
+                        if (item.type != MediaType.Childs_book)
+                        {
+                            MessageBox.Show("This patron is a child and can only check out children's books");
+                            return;
+                        }
+                    }
+                }
                 foreach (DataGridViewRow row in availableGrid.SelectedRows)
                 {
                     MediaItem item = row.Tag as MediaItem;
